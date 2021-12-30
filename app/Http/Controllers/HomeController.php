@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    //__Function for deposit money__//
+    public function deposit()
+    {
+        return view('deposit');
+    }
+
 }
