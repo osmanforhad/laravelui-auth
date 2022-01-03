@@ -16,6 +16,10 @@
 
                     {{ __('You are logged in!') }}
                     {{ Auth::user()->name }}
+
+
+                    <a href="{{ route('user.details',Crypt::encryptString('5')) }}" class="btn btn-info btn-sm">User details</a>
+
                 </div>
             </div>
         </div>

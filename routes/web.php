@@ -36,6 +36,11 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/home/details/{id}', [App\Http\Controllers\HomeController::class, 'details'])->name('user.details');
+
+
 Route::get('/deposit/money', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit.money')->middleware('verified');
 //__Route for display verification page__//
 Route::get('/email/verify', function () {

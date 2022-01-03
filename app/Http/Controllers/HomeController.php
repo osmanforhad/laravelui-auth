@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -31,5 +32,18 @@ class HomeController extends Controller
     {
         return view('deposit');
     }
+
+
+    //__Function for User Details__//
+    public function details($id)
+    {
+         $userId = Crypt::decryptString($id);
+         echo $userId;
+
+                 //DB Query
+        //  $userdata =  DB::table('users')->where('id', $userId)->first();
+         
+    }
+
 
 }
