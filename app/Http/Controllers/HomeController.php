@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -42,6 +43,15 @@ class HomeController extends Controller
 
                  //DB Query
         //  $userdata =  DB::table('users')->where('id', $userId)->first();
+         
+    }
+
+    //__Function for Store data//
+    public function store(Request $request)
+    {
+        $password = Hash::make($request->input('password'));
+
+        echo $password;
          
     }
 

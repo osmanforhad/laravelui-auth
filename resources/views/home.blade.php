@@ -20,6 +20,15 @@
 
                     <a href="{{ route('user.details',Crypt::encryptString('5')) }}" class="btn btn-info btn-sm">User details</a>
 
+                    <form method="POST" action="{{ route('store.user') }}">
+                        @csrf
+                        <div>
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+
                 </div>
             </div>
         </div>

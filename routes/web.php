@@ -38,11 +38,13 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/home/details/{id}', [App\Http\Controllers\HomeController::class, 'details'])->name('user.details');
-
-
 Route::get('/deposit/money', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit.money')->middleware('verified');
 //__Route for display verification page__//
 Route::get('/email/verify', function () {
     return view('auth.verify');
 })->middleware('auth')->name('verification.notice');
+
+
+Route::get('/home/details/{id}', [App\Http\Controllers\HomeController::class, 'details'])->name('user.details');
+
+Route::post('/store/user', [App\Http\Controllers\HomeController::class, 'store'])->name('store.user');
