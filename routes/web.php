@@ -39,6 +39,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/deposit/money', [App\Http\Controllers\HomeController::class, 'deposit'])->name('deposit.money')->middleware('verified');
+Route::get('/password/change', [App\Http\Controllers\HomeController::class, 'password_change'])->name('password.change')->middleware('verified');
+Route::post('/password/change', [App\Http\Controllers\HomeController::class, 'update_password'])->name('update.password')->middleware('verified');
+
 //__Route for display verification page__//
 Route::get('/email/verify', function () {
     return view('auth.verify');
