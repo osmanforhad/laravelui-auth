@@ -5,10 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('All Class') }}</div>
+                <div class="card-header">
+                    {{ __('All Class') }}
+                    <a href="{{ route('create.class') }}" class="btn btn-primary btn-sm" style="float:right;">Add New</a>
+                </div>
                   
                 <div class="card-body">
-                <a href="" class="btn btn-primary btn-sm" style="float:right;">Add New</a>
+                
                 <table class="table table-responsive table-striped">
                     <thead>
                         <tr>

@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 //__Route for Class CRUD PART__//
 Route::get('class', [ClassController::class, 'index'])->name('class.index');
+Route::get('create/class', [ClassController::class, 'create'])->name('create.class');
+Route::post('store/class', [ClassController::class, 'store'])->name('store.class');
 //__Route for Class CRUD PART__//
 
 Auth::routes();
