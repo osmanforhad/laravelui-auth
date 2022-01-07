@@ -36,7 +36,7 @@
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $row->class_name }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="{{ route('class.edit', $row->id) }}" class="btn btn-info btn-sm">Edit</a>
                                     <!-- <a href="{{ url('class/delete'.$row->id) }}" class="btn btn-danger btn-sm">Delete</a> -->
                                     <a href="{{ route('class.delete', $row->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
