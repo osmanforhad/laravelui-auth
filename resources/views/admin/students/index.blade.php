@@ -43,8 +43,13 @@
                                 <td>{{ $student->class_id }}</td>
                                 <td>
                                     <a href="" class="btn btn-info btn-sm">Edit</a>
-                                    <!-- <a href="{{ url('class/delete'.$student->id) }}" class="btn btn-danger btn-sm">Delete</a> -->
-                                    <a href="{{ route('students.destroy',$student->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                    <form action="{{ route('students.destroy',$student->id) }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+                                    <button type="submit" class="btn btn-danger btn-sm mt-2">Delete</button>
+                                    </form>
+                        
                                 </td>
                             </tr>
                             @endforeach
