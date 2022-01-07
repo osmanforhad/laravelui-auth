@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\StudentsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -20,14 +21,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//__Route for Class CRUD PART__//
+//__Route for Class CRUD __//
 Route::get('class', [ClassController::class, 'index'])->name('class.index');
 Route::get('create/class', [ClassController::class, 'create'])->name('create.class');
 Route::post('store/class', [ClassController::class, 'store'])->name('store.class');
 Route::get('class/delete/{id}', [ClassController::class, 'destroy'])->name('class.delete');
 Route::get('class/edit/{id}', [ClassController::class, 'edit'])->name('class.edit');
 Route::put('class/update/{id}', [ClassController::class, 'update'])->name('class.update');
-//__Route for Class CRUD PART__//
+//__Route for Class CRUD __//
+
+//__Route for Syudents CRUD__//
+Route::resource('students', StudentsController::class);
+//__Route for Syudents CRUD__//
 
 Auth::routes();
 
