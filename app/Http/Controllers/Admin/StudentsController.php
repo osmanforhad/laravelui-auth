@@ -6,6 +6,8 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class StudentsController extends Controller
 {
     /**
@@ -26,7 +28,8 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        $classes = DB::table('classes')->get();
+        return view('admin.students.create', compact('classes'));
     }
 
     /**
@@ -37,7 +40,24 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'class_id' => 'required',
+            'name' => 'required',
+            'roll' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $data = array(
+            'class_id' => $request->class_id,
+            'name' => $request->name,
+            'roll' => $request->roll,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        );
+
+        DB::table('students')->insert($data);
+
+        return redirect()->back()->with('success', 'Student Successfully Inserted');
     }
 
     /**
@@ -82,6 +102,6 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
     }
 }

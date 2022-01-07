@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     {{ __('All Students') }}
-                    <a href="" class="btn btn-primary btn-sm" style="float:right;">Add New</a>
+                    <a href="{{ route('students.create') }}" class="btn btn-primary btn-sm" style="float:right;">Add New Student</a>
                 </div>
 
                 <div class="message">
@@ -43,8 +43,8 @@
                                 <td>{{ $student->class_id }}</td>
                                 <td>
                                     <a href="" class="btn btn-info btn-sm">Edit</a>
-                                    <!-- <a href="{{ url('class/delete'.$row->id) }}" class="btn btn-danger btn-sm">Delete</a> -->
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    <!-- <a href="{{ url('class/delete'.$student->id) }}" class="btn btn-danger btn-sm">Delete</a> -->
+                                    <a href="{{ route('students.destroy',$student->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
