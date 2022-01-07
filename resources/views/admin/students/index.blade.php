@@ -42,7 +42,7 @@
                                 <td>{{ $student->phone }}</td>
                                 <td>{{ $student->class_id }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="{{ route('students.edit',$student->id) }}" class="btn btn-info btn-sm">Edit</a>
                                     <form action="{{ route('students.destroy',$student->id) }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE">

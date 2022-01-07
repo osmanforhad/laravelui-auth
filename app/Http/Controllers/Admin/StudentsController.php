@@ -79,7 +79,9 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classes = DB::table('classes')->get();
+        $student = DB::table('students')->where('id', $id)->first();
+        return view('admin.students.edit', compact('classes','student'));
     }
 
     /**
@@ -91,7 +93,24 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'class_id' => 'required',
+            'name' => 'required',
+            'roll' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $data = array(
+            'class_id' => $request->class_id,
+            'name' => $request->name,
+            'roll' => $request->roll,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        );
+
+        DB::table('students')->where('id', $id)->update($data);
+
+        return redirect()->route('students.index')->with('success', 'Student Successfully Updated');
     }
 
     /**
