@@ -8,6 +8,9 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
+                    <a href="{{ route('class.index') }}" class="btn btn-info btn-sm">Class</a>
+                    <a href="" class="btn btn-danger btn-sm">Students</a>
+                    <br>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}

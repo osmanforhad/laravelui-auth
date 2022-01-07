@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ClassController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -18,6 +19,10 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//__Route for Class CRUD PART__//
+Route::get('class', [ClassController::class, 'index'])->name('class.index');
+//__Route for Class CRUD PART__//
 
 Auth::routes();
 
@@ -51,3 +56,4 @@ Route::get('/email/verify', function () {
 Route::get('/home/details/{id}', [App\Http\Controllers\HomeController::class, 'details'])->name('user.details');
 
 Route::post('/store/user', [App\Http\Controllers\HomeController::class, 'store'])->name('store.user');
+
