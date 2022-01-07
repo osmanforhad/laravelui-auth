@@ -68,7 +68,8 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = DB::table('students')->where('id', $id)->first();
+        return view('admin.students.show', compact('student'));
     }
 
     /**
