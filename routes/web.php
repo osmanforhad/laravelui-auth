@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('class', [ClassController::class, 'index'])->name('class.index');
 Route::get('create/class', [ClassController::class, 'create'])->name('create.class');
 Route::post('store/class', [ClassController::class, 'store'])->name('store.class');
+Route::get('class/delete/{id}', [ClassController::class, 'destroy'])->name('class.delete');
 //__Route for Class CRUD PART__//
 
 Auth::routes();

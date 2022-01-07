@@ -49,6 +49,13 @@ class ClassController extends Controller
         return redirect()->back()->with('success', 'Successfully Inserted');
 
       }
+
+      //__destroy method for delete reocrd from DB__//
+      public function destroy($id)
+      {
+          DB::table('classes')->where('id', $id)->delete();
+          return redirect()->back()->with('success', 'Successfully Deleted');
+      }
     
 
 }
