@@ -31,20 +31,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($class as $key=>$row)
+                            @foreach($class as $key=>$cls)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $row->class_name }}</td>
+                                <td>{{ $cls->class_name }}</td>
                                 <td>
-                                    <a href="{{ route('class.edit', $row->id) }}" class="btn btn-info btn-sm">Edit</a>
-                                    <!-- <a href="{{ url('class/delete'.$row->id) }}" class="btn btn-danger btn-sm">Delete</a> -->
-                                    <a href="{{ route('class.delete', $row->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{ route('class.edit', $cls->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                    <!-- <a href="{{ url('class/delete'.$cls->id) }}" class="btn btn-danger btn-sm">Delete</a> -->
+                                    <a href="{{ route('class.delete', $cls->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
+                    {{$class->links()}}
                 </div>
             </div>
         </div>
