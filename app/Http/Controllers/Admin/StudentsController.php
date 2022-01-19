@@ -18,6 +18,7 @@ class StudentsController extends Controller
     public function index()
     {
         $students = DB::table('students')->orderBy('roll', 'DESC')->get();
+        //$students = DB::table('students')->orderBy('roll', 'DESC')->count();
         return view('admin.students.index', compact('students'));
     }
 
@@ -69,6 +70,11 @@ class StudentsController extends Controller
     public function show($id)
     {
         $student = DB::table('students')->where('id', $id)->first();
+        // $student = DB::table('students')->find($id);
+
+        //for display only single column into blade file
+        // $student = DB::table('students')->where('id', $id)->value('phone');
+        
         return view('admin.students.show', compact('student'));
     }
 
