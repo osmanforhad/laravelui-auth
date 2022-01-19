@@ -40,7 +40,7 @@
                                 <td>{{ $student->roll }}</td>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->phone }}</td>
-                                <td>{{ $student->class_id }}</td>
+                                <td>{{ $student->class_name }}</td>
                                 <td>
                                 <a href="{{ route('students.show',$student->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('students.edit',$student->id) }}" class="btn btn-primary btn-sm">Edit</a>
